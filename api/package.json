@@ -1,0 +1,11 @@
+{
+  "name": "artss-api",
+  "version": "1.0.0",
+  "description": "Mock API for artss app",
+  "scripts": {
+    "start": "npx json-server@0.17.4 db.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
