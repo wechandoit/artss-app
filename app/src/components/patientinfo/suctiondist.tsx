@@ -25,11 +25,11 @@ const SuctionDistance = ({ dist, onChange }: DistProps) => {
   };
 
   return (
-    <div className="flex-col border-2 px-6 py-4 rounded-md">
+    <div className="flex-1 min-w-max border-2 px-6 py-4 rounded-md">
       <div className="font-medium">Suction Distance</div>
       <div className="flex text-xl gap-2 my-2 py-2">
         <input
-          className={`outline-none w-12 text-xl ${editing ? "bg-gray-100" : "bg-transparent"}`}
+          className={`outline-none w-16 text-xl ${editing ? "bg-gray-100" : "bg-transparent"}`}
           type="number"
           onChange={handleInputChange}
           value={inputValue}

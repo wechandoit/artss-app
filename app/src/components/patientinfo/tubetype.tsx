@@ -18,7 +18,7 @@ const TubeType = ({ type, onChange }: TubeProp) => {
   };
 
   return (
-    <div className="flex-col max-w-min border-2 px-6 py-4 rounded-md">
+    <div className="flex-1 min-w-max border-2 px-6 py-4 rounded-md">
       <div className="font-medium">Tracheal Tube Type</div>
       <div className="text-black">
         <select

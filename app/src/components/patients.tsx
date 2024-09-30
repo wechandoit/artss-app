@@ -11,14 +11,13 @@ const Patients = () => {
   }, []);
 
   return (
-    <div>
+    <div className="p-16 space-y-20">
       {patients
-        .sort((a, b) => (a.status.time > b.status.time ? -1 : 1))
+        .sort((a, b) => (a.status.date > b.status.date ? -1 : 1))
         .map((patient) => (
-          <Patient key={patient.id} patient={patient} />
-          // <div key={patient.id} className="border-b p-4">
-          //   {patient.fName}
-          // </div>
+          <div key={patient.id}>
+            <Patient patient={patient} setPatients={setPatients} />
+          </div>
         ))}
     </div>
   );

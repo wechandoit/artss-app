@@ -1,15 +1,17 @@
-import SuctionStatus from "./patient_info/suctionstatus";
-import SuctionDistance from "./patient_info/suctiondist";
-import TubeType from "./patient_info/tubetype";
-import SuctionFreq from "./patient_info/suctionfreq";
-import { PatientType } from "@/data/types";
+import SuctionStatus from "./patientinfo/suctionstatus";
+import SuctionDistance from "./patientinfo/suctiondist";
+import TubeType from "./patientinfo/tubetype";
+import SuctionFreq from "./patientinfo/suctionfreq";
+import { PatientType, SuctionStatusType } from "@/data/types";
+import { Pencil2Icon } from "@radix-ui/react-icons";
+import DeleteDialog from "./patientinfo/deletedialog";
 
 type PatientProps = {
   patient: PatientType;
-  setPatient: React.Dispatch<React.SetStateAction<PatientType[]>>;
+  setPatients: React.Dispatch<React.SetStateAction<PatientType[]>>;
 };
 
-const Patient = ({ patient }: { patient: PatientType }) => {
+const Patient = ({ patient, setPatients }: PatientProps) => {
   // functions to change patient info
   const setDist = (newDist: number) => {
     // setPatient((prevPatient) => ({
@@ -29,7 +31,7 @@ const Patient = ({ patient }: { patient: PatientType }) => {
     //   tubeType: newTube,
     // }));
   };
-  const setStatus = (newStatus: { line: string; time: string }) => {
+  const setStatus = (newStatus: SuctionStatusType) => {
     // setPatient((prevPatient) => ({
     //   ...prevPatient,
     //   status: newStatus,
@@ -37,16 +39,24 @@ const Patient = ({ patient }: { patient: PatientType }) => {
   };
 
   return (
-    <div className="flex-col p-16 w-full">
-      <div className="flex w-full justify-between">
-        <div className="text-2xl font-semibold">{`${patient.fName} ${patient.lName}`}</div>
-        <div className="text-2xl right-0">{`Room No. ${patient.roomNo}`}</div>
+    <div className="flex-col min-w-full space-y-8">
+      <div className="flex min-w-full justify-between">
+        <div className="text-2xl">
+          <div className="font-semibold">{`${patient.fName} ${patient.lName}`}</div>
+          <div>{`Room No. ${patient.roomNo}`}</div>
+        </div>
+        <button className="h-8 p-1 rounded-md border-2">
+          <Pencil2Icon className="w-4 h-4" />
+        </button>
       </div>
-      <div className="flex w-full mt-8 justify-between">
+      <div className="flex flex-wrap min-w-full gap-2 justify-between">
         <SuctionStatus status={patient.status} onChange={setStatus} />
         <SuctionDistance dist={patient.dist} onChange={setDist} />
         <TubeType type={patient.tubeType} onChange={setTubeType} />
         <SuctionFreq freq={patient.freq} onChange={setFreq} />
+      </div>
+      <div className="flex justify-end ">
+        <DeleteDialog patient={patient} setPatients={setPatients} />
       </div>
     </div>
   );

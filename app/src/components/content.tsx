@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import Patients from "./patients";
 
 const Content = () => {
@@ -7,10 +6,6 @@ const Content = () => {
       <Patients />
     </div>
   );
-};
-
-Content.propTypes = {
-  page: PropTypes.string.isRequired,
 };
 
 export default Content;

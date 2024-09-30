@@ -19,7 +19,7 @@ function App() {
         <Sidebar page={currentPage} onSelect={handleSelect} />
         <div className="flex-col w-full">
           <Header />
-          <Content page={currentPage} />
+          <Content />
         </div>
       </div>
     </Router>

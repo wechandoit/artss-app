@@ -22,7 +22,7 @@ const SuctionFreq = ({ freq, onChange }: FreqProp) => {
   };
 
   return (
-    <div className="flex-col max-w-min border-2 px-6 py-4 rounded-md">
+    <div className="flex-1 min-w-max border-2 px-6 py-4 rounded-md">
       <div className="font-medium">Suction Frequency</div>
       <div className="flex text-xl gap-2 my-2 py-2">
         Every

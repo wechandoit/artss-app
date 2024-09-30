@@ -12,7 +12,7 @@ export const fetchPatients = async (): Promise<PatientType[]> => {
 };
 
 // Delete a patient by id
-export const deletePatients = async (id: string): Promise<boolean> => {
+export const deletePatient = async (id: number): Promise<boolean> => {
   const response = await fetch(`${API_URL}/patients/${id}`, {
     method: "DELETE",
   });
@@ -23,13 +23,13 @@ export const deletePatients = async (id: string): Promise<boolean> => {
 };
 
 // Create a patient
-export const createPost = async (content: string): Promise<PatientType> => {
+export const createPatient = async (content: string): Promise<PatientType> => {
   const response = await fetch(`${API_URL}/patients`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       content,
-      date: new Date().toISOString(),
+      time: new Date().toISOString(), // might need to fix this
     }),
   });
   if (!response.ok) {
@@ -40,8 +40,8 @@ export const createPost = async (content: string): Promise<PatientType> => {
 };
 
 // Edit a post
-export const editPost = async (
-  id: string,
+export const editPatient = async (
+  id: number,
   content: string,
 ): Promise<PatientType> => {
   const response = await fetch(`${API_URL}/patients/${id}`, {

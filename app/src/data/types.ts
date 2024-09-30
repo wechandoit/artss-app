@@ -10,6 +10,6 @@ export interface PatientType {
 }
 
 export interface SuctionStatusType {
-  line: string; // scheduled, approved, suctioning
-  time: string; // in Date format
+  progress: string; // scheduled, approved, suctioning
+  date: string; // ISO string for the date "YYY-MM-DDTHH:MM"
 }
