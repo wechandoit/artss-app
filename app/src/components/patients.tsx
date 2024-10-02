@@ -1,17 +1,26 @@
-import { useEffect, useState } from "react";
-import { PatientType } from "@/data/types";
+// import { useEffect, useState } from "react";
+// import { PatientType } from "@/data/types";
+// import { fetchPatients } from "@/data/api";
 import Patient from "@/components/patient";
-import { fetchPatients } from "@/data/api";
+import PatientsActions from "./patientsactions";
+import useFetchPatients from "@/hooks/useFetchPatients";
 
 const Patients = () => {
-  const [patients, setPatients] = useState<PatientType[]>([]);
+  // patients state variable for the patients data
+  // const [patients, setPatients] = useState<PatientType[]>([]);
+  // fetch and update the patients displayed
+  // useEffect(() => {
+  //   fetchPatients().then((data) => setPatients(data));
+  // }, []);
 
-  useEffect(() => {
-    fetchPatients().then((data) => setPatients(data));
-  }, []);
+  // use custom hook to define patients and setPatients state
+  const { patients, setPatients } = useFetchPatients();
 
   return (
-    <div className="p-16 space-y-20">
+    <div className="p-16 space-y-14">
+      {/* Component to modify/view the patients as a whole */}
+      <PatientsActions setPatients={setPatients} />
+      {/* Display the patients */}
       {patients
         .sort((a, b) => (a.status.date > b.status.date ? -1 : 1))
         .map((patient) => (

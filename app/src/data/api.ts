@@ -23,14 +23,13 @@ export const deletePatient = async (id: number): Promise<boolean> => {
 };
 
 // Create a patient
-export const createPatient = async (content: string): Promise<PatientType> => {
+export const createPatient = async (
+  patient: PatientType,
+): Promise<PatientType> => {
   const response = await fetch(`${API_URL}/patients`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      content,
-      time: new Date().toISOString(), // might need to fix this
-    }),
+    body: JSON.stringify(patient),
   });
   if (!response.ok) {
     throw new Error(`API request failed! with status: ${response.status}`);
@@ -39,15 +38,16 @@ export const createPatient = async (content: string): Promise<PatientType> => {
   return data;
 };
 
-// Edit a post
+// Edit a patient
 export const editPatient = async (
   id: number,
-  content: string,
+  edits: Partial<PatientType>,
 ): Promise<PatientType> => {
+  console.log(edits);
   const response = await fetch(`${API_URL}/patients/${id}`, {
     method: "PATCH",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ content }),
+    body: JSON.stringify(edits),
   });
   if (!response.ok) {
     throw new Error(`API request failed! with status: ${response.status}`);
