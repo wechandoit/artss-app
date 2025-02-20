@@ -1,4 +1,4 @@
-# Application for the Automated Robotic Tracheostomy Suctioning System
+# Application for an Automated Robotic Tracheostomy Suctioning System
 
 ## Overview
 
