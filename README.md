@@ -1,51 +1,19 @@
-# Automated Robotic Tracheostomy Suctioning System (UI)
+# Application for the Automated Robotic Tracheostomy Suctioning System
 
-This repository contains the code and documentation for the user interface that works with the ARTSS prototype, a project that began in Johns Hopkins University's 601.496 Computer Integrated Surgery II (Teams) course.
+## Overview
 
-### Design
+This is a full-stack application, designed to be paired with the ARTSS prototype.
 
-- App.tsx: high level organization of application structure
+The purpose of the application is to efficiently control, manage, and schedule essential protocols involved with tracheostomy care in intensive care units.
 
-  - Sidebar.tsx: static navigation for application pages
-    page: string [representing the current page starting with '/name_page']
-    onSelect?: (page: string) => void [updating the current page based on selection]
-  - column flex
+The application consists of a backend API created with Flask and SQLAlchemy, and a frontend interface created with Vite, React, and TypeScript.
 
-    - Header.tsx: static navigation for patients
+## Tech Stack
 
-      - Search.tsx: updates content.tsx based on input
-      - Clock.tsx: static display of local time
+Frontend: React, Vite, TypeScript
+Backend: Flask, SQLAlchemy
+Database: PostgreSQL
 
-    - Content.tsx: dynamic display based on user interaction
-      route: string [representing the route to the current page]
-
-- Search.tsx
-  /search?q={input}
-
-- Content.tsx
-
-- Patient.tsx
-  /patient?id={patient_id}
-  id: number
-
-  - SuctionStatus.tsx
-    status: {
-    line: string // Scheduled, Approved, Suctioning
-    time: Date
-    }
-    onChange: (type: { line: string; time: Date }) => void
-  - SuctionDistance.tsx
-    dist: number
-    onChange: (type: number) => void
-  - TubeType.tsx
-    type: string
-    onChange: (type: string) => void
-  - SuctionFreq.tsx
-    freq: number
-    onChange: (type: number) => void
-
-- Patients.tsx
-
-## Authors
+### Authors
 
 - [Rena Bi]
