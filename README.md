@@ -2,16 +2,16 @@
 
 ## Overview
 
-This is a full-stack application, designed to be paired with the ARTSS prototype.
-
-The purpose of the application is to efficiently control, manage, and schedule essential protocols involved with tracheostomy care in intensive care units.
+This is a full-stack application, designed to be paired with the ARTSS prototype and efficiently control, manage, and schedule essential protocols involved with tracheostomy care in intensive care units.
 
 The application consists of a backend API created with Flask and SQLAlchemy, and a frontend interface created with Vite, React, and TypeScript.
 
 ## Tech Stack
 
 Frontend: React, Vite, TypeScript
+
 Backend: Flask, SQLAlchemy
+
 Database: PostgreSQL
 
 ### Authors
