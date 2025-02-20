@@ -4,10 +4,6 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "about:dev-mock": "echo: 'runs the vite client (front end) and mock server (make sure path to db.json is valid) concurrently'",
-    "dev-mock": "concurrently \"vite\" \"npx json-server@0.17.4 ../server/express/db.json\"",
-    "about:dev-cc": "echo: 'runs the vite client (front end) and api concurrently'",
-    "dev-cc": "concurrently \"vite\" \"FLASK_APP=../server/flask/app.py flask run --host=0.0.0.0 --port=5000\"",
     "about:dev": "echo: 'runs the vite client (front end)'",
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -34,7 +30,7 @@
     "@types/pg": "^8.11.10",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
-    "@vitejs/plugin-react": "^4.3.1",
+    "@vitejs/plugin-react": "^1.3.2",
     "autoprefixer": "^10.4.20",
     "eslint": "^9.9.0",
     "eslint-config-prettier": "^9.1.0",
@@ -47,7 +43,7 @@
     "tailwindcss": "^3.4.13",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.1",
-    "vite": "^5.4.1",
+    "vite": "^6.1.1",
     "vite-tsconfig-paths": "^5.0.1"
   }
 }
