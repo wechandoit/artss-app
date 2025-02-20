@@ -14,6 +14,6 @@ Backend: Flask, SQLAlchemy
 
 Database: PostgreSQL
 
-### Authors
+## Authors
 
 - [Rena Bi]
