@@ -1,4 +1,4 @@
-import { SuctionStatusType } from "@/data/types";
+import { SuctionType } from "@/data/types";
 import { Pencil2Icon } from "@radix-ui/react-icons";
 import React, { useState } from "react";
 
@@ -7,32 +7,40 @@ import React, { useState } from "react";
   onSave: pass the updated status to the parent patient component
  */
 type StatusProps = {
-  status: SuctionStatusType;
-  onSave: (propName: string, newStatus: SuctionStatusType) => void;
+  suction: SuctionType;
+  onSave: (propName: string, newSuction: SuctionType) => void;
 };
 
-const SuctionStatus = ({ status, onSave }: StatusProps) => {
+const SuctionStatus = ({ suction, onSave }: StatusProps) => {
   // editing state variable
   const [editing, setEditing] = useState(false);
   // input state variable
-  const [inputValue, setInputValue] = useState(status.date);
+  const [inputValue, setInputValue] = useState(suction.date);
+
   // function to update the input property value
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value); // Update state with input value
   };
+
   // Edit Button Click: set to editing state
   const handleEditClick = () => {
     setEditing(true);
   };
   // Save Button Click: update patient, make api PATCH request
   const handleApproveClick = () => {
-    // TODO: validate changes (future date)
+    // todo: validate that date is a future time
+
+    // change to iso
+    const date = new Date(inputValue);
+    const isoDate = date.toISOString();
+
     setEditing(false);
-    const newStatus = {
-      progress: "Approved",
-      date: inputValue,
+    const newSuction = {
+      id: 0, // temporary id
+      status: "Approved",
+      date: isoDate,
     };
-    onSave("status", newStatus);
+    onSave("status", newSuction);
   };
 
   return (
@@ -58,7 +66,7 @@ const SuctionStatus = ({ status, onSave }: StatusProps) => {
         )}
       </div>
       <div className="flex text-xl gap-2 my-2 py-2">
-        {status.progress} for
+        {suction.status} for
         <input
           id="status"
           className={`outline-none items-center text-xl ${editing ? "bg-gray-100" : "bg-transparent"}`}

@@ -1,4 +1,4 @@
-import { API_URL } from "@/env";
+import { API_URL } from "@/env"; // TODO: change to DB_URL ?
 import { PatientType } from "./types";
 
 // Fetch all patients

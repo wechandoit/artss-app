@@ -26,5 +26,5 @@
       "@/*": ["./src/*"] // Alias for the src directory
     }
   },
-  "include": ["src"]
+  "include": ["src", "env.ts"]
 }

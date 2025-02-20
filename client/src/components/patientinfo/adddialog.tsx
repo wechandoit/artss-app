@@ -20,7 +20,7 @@ const AddDialog = ({ setPatients }: addDialogProps) => {
   // state variables for new patient data, initialized as empty objects/values
   const [newPatientData, setNewPatientData] =
     useState<PatientType>(defaultPatient);
-  const [statusDate, setStatusDate] = useState(newPatientData.status.date);
+  const [statusDate, setStatusDate] = useState(newPatientData.suctions[0].date);
   const [tubeType, setTubeType] = useState(newPatientData.tubeType);
   // functions for controlling dialog apperance
   const openDialog = () => {
@@ -43,7 +43,7 @@ const AddDialog = ({ setPatients }: addDialogProps) => {
   const handleSubmit = () => {
     // TODO: validate changes (future date, nonnegative values)
     newPatientData.tubeType = tubeType;
-    newPatientData.status.date = statusDate.toString();
+    newPatientData.suctions[0].date = statusDate.toString();
     // make api request
     tryAddPatient(newPatientData);
     // setPatients((prevPatients: PatientType[]) => [

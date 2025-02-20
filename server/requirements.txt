@@ -1,0 +1,6 @@
+flask-cors
+python-dotenv # for environment variable access
+psycopg2
+sqlalchemy # for database modelling
+flask-sqlalchemy # for connecting database model
+pytz # for timezone management

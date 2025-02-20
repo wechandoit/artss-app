@@ -22,7 +22,7 @@ const Patients = () => {
       <PatientsActions setPatients={setPatients} />
       {/* Display the patients */}
       {patients
-        .sort((a, b) => (a.status.date > b.status.date ? -1 : 1))
+        .sort((a, b) => (a.suctions[0].date > b.suctions[0].date ? -1 : 1))
         .map((patient) => (
           <div key={patient.id}>
             <Patient patient={patient} setPatients={setPatients} />

@@ -1,5 +1,5 @@
-import Search from "../header/search";
-import Clock from "../header/clock";
+import Search from "./search";
+import Clock from "./clock";
 
 const Header = () => {
   return (

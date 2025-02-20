@@ -36,7 +36,7 @@ const Patient = ({ patient, setPatients }: PatientProps) => {
       </div>
       <div className="flex flex-wrap min-w-full gap-2 justify-between">
         {/* Display patient suctioning info/parameters */}
-        <SuctionStatus status={patient.status} onSave={onSave} />
+        <SuctionStatus suction={patient.suctions[0]} onSave={onSave} />
         <SuctionDistance dist={patient.dist} onSave={onSave} />
         <TubeType tubeType={patient.tubeType} onSave={onSave} />
         <SuctionFreq freq={patient.freq} onSave={onSave} />

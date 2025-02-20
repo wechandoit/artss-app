@@ -5,14 +5,22 @@ export interface PatientType {
   roomNo: string;
   dist: number; // in CM
   freq: number; // per hour
-  status: SuctionStatusType;
+  suctions: SuctionType[]; //
   tubeType: string;
 }
 
-export interface SuctionStatusType {
-  progress: string; // scheduled, approved, suctioning
+export interface SuctionType {
+  id: number;
+  status: string; // scheduled, approved, suctioning
   date: string; // ISO string for the date "YYY-MM-DDTHH:MM"
+  passes?: number; // optional (integer ranging 1-3)
 }
+
+export const defaultSuction: SuctionType = {
+  id: 0,
+  status: "Scheduled",
+  date: new Date().toISOString(),
+};
 
 export const defaultPatient: PatientType = {
   id: 0,
@@ -21,10 +29,7 @@ export const defaultPatient: PatientType = {
   roomNo: "",
   dist: 0,
   freq: 0,
-  status: {
-    progress: "Scheduled",
-    date: "",
-  },
+  suctions: [defaultSuction],
   tubeType: "",
 };
 
