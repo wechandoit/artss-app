@@ -33,7 +33,7 @@ const DeleteDialog = ({ patient, setPatients }: PatientProps) => {
     <div>
       {/* Delete button */}
       <button
-        className="bg-gray-200 text-red-500 btn-primary"
+        className="bg-red-500 text-white btn-primary"
         onClick={openDialog}
       >
         Delete

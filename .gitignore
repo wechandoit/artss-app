@@ -22,3 +22,4 @@ __pycache__
 
 # Environment variables
 .env
+server/instance/*

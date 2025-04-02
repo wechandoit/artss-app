@@ -1,6 +1,6 @@
-flask=3.1.0               # for backend management
-flask-cors=5.0.0          # for cross origin resource sharing with frontend
-python-dotenv=1.0.1       # for environment variable access
-sqlalchemy=2.0.38         # for database modelling
-flask-sqlalchemy=3.1.1    # for database modelling with flask
-pytz=2025.1               # for timezone management
+flask==3.1.0               # for backend management
+flask-cors==5.0.0          # for cross origin resource sharing with frontend
+python-dotenv==1.0.1       # for environment variable access
+sqlalchemy==2.0.38         # for database modelling
+flask-sqlalchemy==3.1.1    # for database modelling with flask
+pytz==2025.1               # for timezone management

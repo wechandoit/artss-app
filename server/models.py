@@ -7,13 +7,13 @@ db = SQLAlchemy()
 class Patient(db.Model):
     __tablename__ = "patients_table"
     
-    id = db.Column(db.Integer, primary_key=True)
-    fname = db.Column(db.String(255), nullable=False)
-    lname = db.Column(db.String(255), nullable=False)
-    roomno = db.Column(db.String(255), nullable=False)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    fName = db.Column(db.String(255), nullable=False)
+    lName = db.Column(db.String(255), nullable=False)
+    roomNo = db.Column(db.String(255), nullable=False)
     dist = db.Column(db.Integer, nullable=False)
     freq = db.Column(db.Integer, nullable=False)
-    tubetype = db.Column(db.String(255), nullable=False)
+    tubeType = db.Column(db.String(255), nullable=False)
 
     # relationship to suctions table, order by descending date
     suctions = db.relationship("Suction", 
@@ -23,22 +23,22 @@ class Patient(db.Model):
 
     def to_dict(self):
         return {"id": self.id, 
-                "fName": self.fname, 
-                "lName": self.lname,
-                "roomNo": self.roomno,
+                "fName": self.fName, 
+                "lName": self.lName,
+                "roomNo": self.roomNo,
                 "dist": self.dist,
                 "freq": self.freq,
-                "tubeType": self.tubetype,
+                "tubeType": self.tubeType,
                 "suctions": [s.to_dict() for s in self.suctions]
         }
     
     def __repr__(self):
-        return f"<Patient ID {self.id}: {self.fname} {self.lname}>"
+        return f"<Patient ID {self.id}: {self.fName} {self.lName}>"
     
 class Suction(db.Model):
     __tablename__ = "suctions_table"
 
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     status = db.Column(db.String(255), nullable=False)
     date = db.Column(db.DateTime(timezone=True), default=func.now())
     passes = db.Column(db.Integer, nullable=True)
